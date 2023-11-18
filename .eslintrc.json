@@ -14,18 +14,36 @@
     "no-use-before-define": "off",
     "no-useless-constructor": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-	  "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "no-underscore-dangle": "off",
     "no-param-reassign": "off",
-    "no-undef":"off",
+    "no-undef": "off",
     "consistent-return": "off",
     "class-methods-use-this": "off",
     "camelcase": "off",
     "no-plusplus": "off",
     "radix": "off",
     "array-callback-return": "off",
-    "no-console":"off",
-    "arrow-parens":"off"
+    "no-console": "off",
+    "arrow-parens": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-unresolved": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
