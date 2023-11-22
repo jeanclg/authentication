@@ -11,15 +11,20 @@ datasource db {
 }
 
 model user {
-  user_id  Int       @id @default(autoincrement())
-  user_key String    @default(uuid())
-  name     String?
-  email    String    @unique
-  password String
-  session  session[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  user_id   Int       @id @default(autoincrement())
+  user_key  String    @default(uuid())
+  name      String?
+  email     String    @unique
+  password  String
+  active    Boolean   @default(true)
+  session   session[]
 }
 
 model session {
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
   session_id  Int      @id @default(autoincrement())
   session_key String   @default(uuid())
   user_id     Int
