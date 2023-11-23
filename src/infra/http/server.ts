@@ -7,7 +7,7 @@ const app = new Elysia();
 app
   .use(
     swagger({
-      exclude: ['/docs', '/docs/json'],
+      exclude: ['/docs', '/docs/json', '/'],
       path: '/docs',
       documentation: {
         info: {
@@ -18,9 +18,16 @@ app
     }),
   );
 
+app.get('/', () => {
+  return {connected: true}
+})
+
 app.group('/v1', app => app
-  .use(routes));
+  .use(routes))
+  .onError(({ code, error }) => {
+    return new Response(error.toString())
+})
 
 app.listen(3000, () => {
-  console.log(`🦊 Elysia is running at ${app.server?.hostname}:${3000}`);
+  console.log(`🦊 Server is running at ${app.server?.hostname}:${3000}`);
 });
