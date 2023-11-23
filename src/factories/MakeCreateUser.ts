@@ -1,5 +1,6 @@
-import CreateUserService from './CreateUserService';
-import UserRepository from './UserRepository';
+import UserRepository from "../infra/repositories/UserRepository";
+import CreateUserService from "../services/CreateUserService";
+
 
 export function MakeCreateUser() {
   const userRepository = new UserRepository();

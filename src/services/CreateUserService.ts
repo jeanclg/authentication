@@ -1,8 +1,7 @@
-/* eslint-disable no-empty-function */
-/* eslint-disable no-unused-vars */
-import { UseCase } from '../../shared/UseCase';
-import { User } from '../model/User';
-import { IUserRepository } from './IUserRepository,';
+import { IUserRepository } from "../@repositories/IUserRepository,";
+import { User } from "../infra/prisma/models/User";
+import { UseCase } from "../shared/UseCase";
+
 
 export interface ICreateUserDTO {
   name?: string;
@@ -12,7 +11,7 @@ export interface ICreateUserDTO {
 
 export default class CreateUserService implements UseCase<ICreateUserDTO, User> {
   constructor(
-    private readonly userRepository: IUserRepository,
+    private userRepository: IUserRepository,
   ) {}
 
   execute({ email, password }: ICreateUserDTO): Promise<User> {

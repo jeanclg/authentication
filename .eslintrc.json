@@ -37,8 +37,9 @@
         "tsx": "never"
       }
     ],
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
   },
+  "no-shadow": ["error", { "builtinGlobals": false, "hoist": "functions", "allow": [], "ignoreOnInitialization": false }],
   "settings": {
     "import/resolver": {
       "node": {

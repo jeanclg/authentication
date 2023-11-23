@@ -1,9 +1,6 @@
-/* eslint-disable no-shadow */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-vars */
 import Elysia from 'elysia';
 import { swagger } from '@elysiajs/swagger';
-import routes from '../routes/index';
+import routes from './routes';
 
 const app = new Elysia();
 
