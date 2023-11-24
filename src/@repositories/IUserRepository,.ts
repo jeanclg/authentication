@@ -1,4 +1,5 @@
-import { User } from '../model/User';
+/* eslint-disable no-unused-vars */
+import { User } from '../infra/prisma/models/User';
 
 export interface IUserRepository {
   findByEmail(email: string): Promise<User | null>

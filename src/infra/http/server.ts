@@ -1,6 +1,9 @@
+/* eslint-disable default-case */
+/* eslint-disable no-shadow */
 import Elysia from 'elysia';
 import { swagger } from '@elysiajs/swagger';
 import routes from './routes';
+import AppError from '../../shared/error/AppError';
 
 const app = new Elysia();
 
@@ -18,15 +21,19 @@ app
     }),
   );
 
-app.get('/', () => {
-  return {connected: true}
-})
+app.get('/', () => ({ connected: true }));
 
 app.group('/v1', app => app
   .use(routes))
+  .error({
+    message: AppError,
+  })
   .onError(({ code, error }) => {
-    return new Response(error.toString())
-})
+    switch (code) {
+      case 'message':
+        return error;
+    }
+  });
 
 app.listen(3000, () => {
   console.log(`🦊 Server is running at ${app.server?.hostname}:${3000}`);

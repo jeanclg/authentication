@@ -2,7 +2,6 @@ import Elysia from 'elysia';
 import UserController from '../controllers/UserController';
 import { createUserSchema } from './schemas/userSchema';
 
-
 const route = new Elysia();
 const usercontroller = new UserController();
 
